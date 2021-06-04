@@ -2,6 +2,13 @@
 
 body{
     font-family: 'Cormorant Garamond', serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    color: black;
+    
 }
 
 
@@ -35,7 +42,7 @@ body{
     color: #f1f1f1;
   }
   
-  .main {
+  .main, .footer {
     margin-left: 160px; /* Same as the width of the sidenav */
     font-size: 28px; /* Increased text to enable scrolling */
     padding: 0px 10px;
@@ -46,17 +53,29 @@ body{
     .sidenav a {font-size: 18px;}
   }
 
-  nav {
+nav {
     background-color: #0D2818;
     }
-    nav a{
+nav a, footer a{
         color: #F5FF90;
         font-size: 1.5rem;
     }
-    .navbar-brand, .logo{
+.navbar-brand, .logo{
     font-size: 2.2rem;
     text-transform: uppercase;
     }
-    .btn-search {
+.btn-search {
     background-color: #F5FF90;
     }
+.footer{
+        position: absolute;
+        bottom: 0;
+        width: calc(100% - 175px);
+        height: 60px;
+        line-height: 60px;
+        background-color: #426B69;
+        font-size: 1rem;
+        text-align: center;
+    }
+
+
