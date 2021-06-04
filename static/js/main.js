@@ -33,5 +33,6 @@ $(document).ready(function(){
                 )
             }
         })
+        $(".post-form")[0].reset()
     })
 })

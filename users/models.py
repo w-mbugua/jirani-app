@@ -15,9 +15,11 @@ class Post(models.Model):
     author = models.ForeignKey(get_user_model(),on_delete=models.CASCADE)
     body = models.TextField()
     image = CloudinaryField('image', blank=True, null=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.body[:20]
     
-    # def get_absolute_url(self):
-    #     return reverse('post_detail', args=[str(self.id)])
+    def get_absolute_url(self):
+         return reverse('post_detail', args=[str(self.id)])

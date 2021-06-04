@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView, View
+from django.views.generic import CreateView, View, DetailView
 from django.urls import reverse_lazy
 from .forms import CustomUserCreationForm, PostCreateForm
 from django.http import JsonResponse
@@ -36,4 +36,11 @@ class SignUpView(CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'signup/registration_form.html'
+
+class PostView(View):
+    def get(self, request, post_id):
+        post = Post.objects.get(id=post_id)
+        
+        return render(request, 'posts/post_detail.html', {"post": post})
+
 
