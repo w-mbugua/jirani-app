@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from .forms import CustomUserCreationForm, PostCreateForm
 from django.http import JsonResponse
 from django.forms.models import model_to_dict
-from .models import Post
+from posts.models import Post
 
 def home(request):
     form = PostCreateForm()
