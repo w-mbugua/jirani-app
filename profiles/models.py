@@ -9,7 +9,7 @@ class Profile(models.Model):
     bio = models.TextField()
 
     def __str__(self):
-        return f"{self.user} profile"
+        return self.user.username
     
     # def get_absolute_url(self):
     #     return reverse('user_profile', args=[str(self.user.username)])
