@@ -18,14 +18,12 @@
                       <div class="col-md-8">
                         <div class="card-body">
                           <h5 class="card-title"> {{profile}}</h5>
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                          <ul>
-                              <li>Name:</li>
-                          </ul>
+                          <p class="card-text">{{ profile.bio }}</p>
+                          <p class="card-text"><small>Joined: {{profile.created|date:"M Y"}}</small></p>
+                        
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Occupation: {{profile}}</li>
+                            <li class="list-group-item">Occupation: {{profile.user.occupation}}</li>
                             <li class="list-group-item">Location: {{profile.user.neighborhood}}, {{profile.user.location}}</li>
                             <li class="list-group-item">Contact: {{profile.user.email}}</li>
                             <li class="list-group-item">

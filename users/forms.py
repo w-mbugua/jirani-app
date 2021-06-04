@@ -7,7 +7,7 @@ from posts.models import Post
 class CustomUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = CustomUser
-        fields = UserCreationForm.Meta.fields + ('neighborhood', 'location', 'occupation',)
+        fields = UserCreationForm.Meta.fields + ('email', 'neighborhood', 'location', 'occupation',)
 
 class CustomUserChangeForm(UserChangeForm):
     class Meta:
