@@ -45,3 +45,18 @@ body{
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
   }
+
+  nav {
+    background-color: #0D2818;
+    }
+    nav a{
+        color: #F5FF90;
+        font-size: 1.5rem;
+    }
+    .navbar-brand, .logo{
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    }
+    .btn-search {
+    background-color: #F5FF90;
+    }
