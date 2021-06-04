@@ -12,7 +12,6 @@ a{
 }
 
 
-
 .sidenav {
     height: 100%;
     margin-top: 5rem;
@@ -23,6 +22,7 @@ a{
     left: 0;
     overflow-x: hidden;
     padding-top: 20px;
+    background-color: #f76c6c;
   }
   .reg-img {
   
@@ -34,12 +34,12 @@ a{
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 1.5rem;
-    color: #7F9C96;
+    color: white;
     display: block;
   }
   
   .sidenav a:hover {
-    color: #f1f1f1;
+    color: #f76c6c;
   }
   
   .main, .footer {
@@ -54,10 +54,10 @@ a{
   }
 
 nav {
-    background-color: #0D2818;
+    background-color: #A8D0E6;
     }
 nav a, footer a{
-        color: #F5FF90;
+        color: white;
         font-size: 1.5rem;
     }
 .navbar-brand, .logo{
@@ -73,9 +73,15 @@ nav a, footer a{
         width: calc(100% - 175px);
         height: 60px;
         line-height: 60px;
-        background-color: #426B69;
+        background-color: #A8D0E6;
         font-size: 1rem;
         text-align: center;
-    }
+}
+.post-form label{
+    display: none;
+}
+#div_id_image{
+    display: none;
+}
 
 
