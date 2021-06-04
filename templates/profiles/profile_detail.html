@@ -5,7 +5,8 @@
             <div class="col-md-2"></div>
             <div class="col-md-6">
                 {{profile}}
-                <button class="btn btn-danger"><a style="text-decoration: none;" href="">Edit Profile</a></button>
+                <p>{{profile.bio}}</p>
+                <button class="btn btn-danger"><a style="text-decoration: none;" href="{% url 'profile_update' profile.pk %}">Edit Profile</a></button>
             </div>
         </div>
     </div>
