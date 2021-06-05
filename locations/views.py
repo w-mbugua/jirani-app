@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import ContactCreateForm, BusinessForm
-from .models import Contact
+from .models import Contact, Business
 from django.urls import reverse
 
 def add_contact(request):
@@ -37,8 +37,14 @@ def neighborhood_details(request):
     user = request.user
     area = user.get_location()
     occupants = area.get_count()
-    context = {"occupants": occupants, "area": area}
+    biz_count = area.count_businesses()
+    context = {"occupants": occupants, "area": area, "biz_count": biz_count}
     return render(request, 'location/about.html', context)
+
+def search_business(request):
+    searched_word = request.GET.get('searchword')
+    business_list = Business.search_business(searched_word)
+    return render(request, 'location/search.html', {"business_list": business_list, "searched_word": searched_word})
 
 
 

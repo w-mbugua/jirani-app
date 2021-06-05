@@ -3,4 +3,8 @@
 {% block content %}
     <h1>About {{area|title}}:</h1>
     <p>Residents: {{occupants}}</p>
+    <p>
+        <a href="{% url 'business_list' %}">Listed Businesses:</a>
+        {{biz_count}}
+    </p>
 {% endblock %}

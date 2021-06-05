@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3>Search Results for "{{searched_word}}"</h3>
+    <div class="container">
+        {% for business in business_list %}
+            {{business}}
+        {% endfor %}
+    </div>
+{% endblock %}
