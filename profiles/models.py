@@ -9,7 +9,7 @@ class Profile(models.Model):
     bio = models.TextField()
     photo = CloudinaryField('image')
     created = models.DateTimeField(auto_now_add=True)
-   
+    neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE)
     
 
     def __str__(self):

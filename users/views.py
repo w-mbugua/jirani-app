@@ -1,19 +1,19 @@
+from typing import List
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView, View, DetailView
+from django.views.generic import CreateView, View, DetailView, ListView
 from django.urls import reverse_lazy
 from .forms import CustomUserCreationForm, PostCreateForm, NewNeighborhoodForm
 from django.http import JsonResponse
 from django.forms.models import model_to_dict
 from posts.models import Post
-from locations.models import Neighborhood
+from locations.models import Neighborhood, Business
 
 def home(request):
     form = PostCreateForm()
-
     posts = Post.objects.all().order_by('-pk')
     hoods = Neighborhood.objects.all().order_by('-pk')
-  
-    context = {"form": form, "posts": posts, "hoods": hoods}
+    businesses = Business.objects.all().order_by('-pk')
+    context = {"form": form, "posts": posts, "hoods": hoods, "businesses": businesses}
     return render(request, 'home.html', context)
 
 def create_post(request):
@@ -56,6 +56,12 @@ def create_neighborhood(request):
         else:
             print("form not valid", form.errors)
     return render(request, 'location/add_hood.html', {"form": form})
+
+def BusinessListView(request, hood):
+    hood = Neighborhood.objects.get(name=hood)
+    businesses = Business.objects.filter(neighborhood=hood)
+
+    return render(request, 'location/biz_list.html', {"hood": hood, "businesses": businesses})
 
 
 

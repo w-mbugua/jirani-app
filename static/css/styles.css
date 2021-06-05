@@ -87,4 +87,6 @@ nav a, footer a{
   width: 100%;
 }
 
-
+li a {
+  color: black;
+}

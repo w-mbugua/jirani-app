@@ -1,15 +1,26 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
-{% block sidebar %} 
-    <p><strong>Neighborhoods</strong></p>
+{% block sidebar %} {{block.super}}
+    <div>
+        <p><strong>Neighborhoods</strong></p>
     {% for neighborhood in hoods %}
         <ul>
             <li>
                 {{neighborhood.name }}
             </li>
         </ul>
-    {% endfor %}
+        {% endfor %}
+    </div>
+    <div class="biz-section">
+        <p><strong>
+            <a style="color: black; text-decoration: none;" href="{% url 'home' %}">Businesses</a>
+        </strong></p>
+    </div>
+    <div class="contacts">
+        <p><strong>Emergency Contacts</strong></p>
+        
+    </div>
 {% endblock %}
 {% block content %}
     <div class="container">
