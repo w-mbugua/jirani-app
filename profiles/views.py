@@ -9,7 +9,7 @@ class ProfileDetailView(DetailView):
 
 class ProfileUpdateView(UpdateView):
     model = Profile
-    fields = ('bio', 'photo')
+    fields = ('bio', 'photo', 'neighborhood',)
     template_name = 'profiles/profile_edit.html'
 
 class ProfileListView(ListView):

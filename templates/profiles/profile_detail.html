@@ -28,6 +28,7 @@
                             <li class="list-group-item">Contact: {{profile.user.email}}</li>
                             <li class="list-group-item">
                                 <button class="btn btn-danger"><a style="text-decoration: none;" href="{% url 'profile_update' profile.pk %}">Edit Profile</a></button>
+                                <button class="btn btn-outline-success"><a style="text-decoration: none;"  href="{% url 'profile_update' profile.pk %}">Change Neighborhood</a></button>
                             </li>
                           </ul>
                       </div>
