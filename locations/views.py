@@ -33,5 +33,13 @@ def add_business(request):
             return redirect('business_list')
     return render(request, 'location/add_business.html', {"form": form})
 
+def neighborhood_details(request):
+    user = request.user
+    area = user.get_location()
+    occupants = area.get_count()
+    context = {"occupants": occupants, "area": area}
+    return render(request, 'location/about.html', context)
+
+
 
 

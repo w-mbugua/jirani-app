@@ -9,6 +9,10 @@ class Neighborhood(models.Model):
  
     def __str__(self):
         return self.name
+
+    def get_count(self):
+        residents = self.profiles.all().count()
+        return residents
     
     # def get_absolute_url(self):
     #     return reverse('neighborhood_details', args=[str(self.pk)])
