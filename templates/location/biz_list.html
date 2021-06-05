@@ -22,6 +22,9 @@
                 {% empty %}
                 <p>There are no businneses listed for your location</p>
                 {%endfor %}
+                <p>
+                    List a new business<a href="{% url 'add_business' %}"> here</a>
+                </p>
             </div>
         </div>
     </div>

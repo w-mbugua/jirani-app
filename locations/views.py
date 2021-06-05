@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from .forms import ContactCreateForm
+from .forms import ContactCreateForm, BusinessForm
 from .models import Contact
+from django.urls import reverse
 
 def add_contact(request):
     form = ContactCreateForm()
@@ -15,5 +16,17 @@ def add_contact(request):
 def ContactViewList(request):
     contacts = Contact.objects.all().order_by('-pk')
     return render(request, 'location/contactlist.html', {"contacts": contacts})
+
+def add_business(request):
+    form = BusinessForm()
+    if request.method == 'POST':
+        form = BusinessForm(request.POST)
+        if form.is_valid():
+            biz = form.save(commit=False)
+            biz.owner = request.user
+            biz.save()
+            return redirect('business_list')
+    return render(request, 'location/add_business.html', {"form": form})
+
 
 
