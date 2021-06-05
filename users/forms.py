@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.forms import widgets
 from .models import CustomUser
+from locations.models import Neighborhood
 from posts.models import Post
 
 class CustomUserCreationForm(UserCreationForm):
@@ -21,4 +22,9 @@ class PostCreateForm(forms.ModelForm):
         widgets = {
             'body': forms.Textarea(attrs={'rows': '3'})
         }
+
+class NewNeighborhoodForm(forms.ModelForm):
+    class Meta:
+        model = Neighborhood
+        fields = '__all__'
 
