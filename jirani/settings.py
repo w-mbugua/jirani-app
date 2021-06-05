@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'posts',
     'locations',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
