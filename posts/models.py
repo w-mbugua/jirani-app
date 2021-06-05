@@ -14,6 +14,8 @@ class Post(models.Model):
     updated = models.DateTimeField(auto_now=True)
     comments = GenericRelation(Comment)
 
+    def get_location(self):
+        return self.author.profile.neighborhood
 
     def __str__(self):
         return self.body[:20]

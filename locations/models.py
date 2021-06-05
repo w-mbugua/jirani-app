@@ -35,3 +35,7 @@ class Contact(models.Model):
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=6)
     email = models.EmailField()
     phone_number = PhoneNumberField()
+    neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE, related_name='contacts')
+
+    def get_location(self):
+        return self.neighborhood

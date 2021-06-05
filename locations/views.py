@@ -10,12 +10,17 @@ def add_contact(request):
         if form.is_valid():
             contact = form.save(commit=True)
             contact.save()
-            return redirect('home')
+            return redirect('contacts_list')
     return render(request, 'location/create_contact.html', {"form": form})
 
 def ContactViewList(request):
     contacts = Contact.objects.all().order_by('-pk')
-    return render(request, 'location/contactlist.html', {"contacts": contacts})
+
+    new_contacts = []
+    for contact in contacts:
+        if contact.get_location() == request.user.get_location():
+            new_contacts.append(contact)
+    return render(request, 'location/contactlist.html', {"contacts": new_contacts})
 
 def add_business(request):
     form = BusinessForm()

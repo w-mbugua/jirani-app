@@ -10,10 +10,17 @@ from locations.models import Neighborhood, Business
 
 def home(request):
     form = PostCreateForm()
+    user = request.user
+    new_area = user.profile.neighborhood
     posts = Post.objects.all().order_by('-pk')
+
+    new_posts = []
+    for post in posts:
+        if post.get_location() == new_area:
+            new_posts.append(post)
     hoods = Neighborhood.objects.all().order_by('-pk')
     businesses = Business.objects.all().order_by('-pk')
-    context = {"form": form, "posts": posts, "hoods": hoods, "businesses": businesses}
+    context = {"form": form, "posts": new_posts, "hoods": hoods, "businesses": businesses}
     return render(request, 'home.html', context)
 
 def create_post(request):
@@ -59,9 +66,15 @@ def create_neighborhood(request):
 
 def BusinessListView(request):
     # hood = Neighborhood.objects.get(name=hood)
-    businesses = Business.objects.all()
+    businesses = Business.objects.all().order_by('-pk')
+    user_location = request.user.profile.neighborhood
 
-    return render(request, 'location/biz_list.html', {"businesses": businesses})
+    new_businesses = []
+    for business in businesses:
+        if business.neighborhood == user_location:
+            new_businesses.append(business)
+    
+    return render(request, 'location/biz_list.html', {"businesses": new_businesses})
 
 
 
