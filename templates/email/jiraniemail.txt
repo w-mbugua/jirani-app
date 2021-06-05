@@ -1,0 +1,3 @@
+Hello {{name}}
+
+Welcome to the Jirani App! Hope you enjoy keeping up with your neighborhood!

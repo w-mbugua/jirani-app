@@ -7,6 +7,7 @@ from django.http import JsonResponse
 from django.forms.models import model_to_dict
 from posts.models import Post
 from locations.models import Neighborhood, Business
+from .email import send_welcome_email
 
 def home(request):
     form = PostCreateForm()
@@ -45,6 +46,13 @@ class SignUpView(CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'signup/registration_form.html'
+
+    def form_valid(self, form):
+        name = form.cleaned_data['username']
+        email = form.cleaned_data['email']
+        send_welcome_email(name, email)
+        return super().form_valid(form)
+
 
 class PostView(View):
     def get(self, request, post_id):

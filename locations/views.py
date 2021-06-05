@@ -43,7 +43,11 @@ def neighborhood_details(request):
 
 def search_business(request):
     searched_word = request.GET.get('searchword')
-    business_list = Business.search_business(searched_word)
+    results = Business.search_business(searched_word)
+    business_list = []
+    for business in results:
+        if business.neighborhood == request.user.get_location():
+            business_list.append(business)
     return render(request, 'location/search.html', {"business_list": business_list, "searched_word": searched_word})
 
 

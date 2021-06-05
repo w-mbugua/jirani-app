@@ -4,7 +4,14 @@
     <h3>Search Results for "{{searched_word}}"</h3>
     <div class="container">
         {% for business in business_list %}
-            {{business}}
+        <blockquote class="blockquote mb-0">
+            <h4>{{forloop.counter }} &middot; {{ business.name }}</h4>
+            <p><strong>Contacts:</strong> {{ business.email}}</p>
+           <hr>
+               
+          </blockquote>
+          {% empty %}
+          <p style="color: brown;">There are no {{searched_word}} results for {{user.get_location}}</p>
         {% endfor %}
     </div>
 {% endblock %}
