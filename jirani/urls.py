@@ -26,4 +26,5 @@ urlpatterns = [
     path('', include('users.urls')),
     path('', home, name='home'),
     path('profiles/', include('profiles.urls')),
+    path('location/', include('locations.urls'))
 ]
