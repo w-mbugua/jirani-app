@@ -16,7 +16,7 @@
                             Email: {{ contact.email}}
                         </li>
                         <li>
-                            Phone Number: {{contact.phone}}
+                            Phone Number: {{contact.phone_number}}
                         </li>
                     </ul>
                    <hr>
@@ -25,6 +25,8 @@
                 {% empty %}
                 <p>There are no contacts listed for your location</p>
                 {%endfor %}
+
+                <p><a href="{% url 'add_contact' %}">Add Helpful Contacts</a></p>
             </div>
         </div>
     </div>

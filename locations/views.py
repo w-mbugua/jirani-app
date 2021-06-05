@@ -14,6 +14,6 @@ def add_contact(request):
 
 def ContactViewList(request):
     contacts = Contact.objects.all().order_by('-pk')
-    return render(request, 'locations/contactlist.html', {"contact": contacts})
+    return render(request, 'location/contactlist.html', {"contacts": contacts})
 
 

@@ -57,11 +57,11 @@ def create_neighborhood(request):
             print("form not valid", form.errors)
     return render(request, 'location/add_hood.html', {"form": form})
 
-def BusinessListView(request, hood):
-    hood = Neighborhood.objects.get(name=hood)
-    businesses = Business.objects.filter(neighborhood=hood)
+def BusinessListView(request):
+    # hood = Neighborhood.objects.get(name=hood)
+    businesses = Business.objects.all()
 
-    return render(request, 'location/biz_list.html', {"hood": hood, "businesses": businesses})
+    return render(request, 'location/biz_list.html', {"businesses": businesses})
 
 
 

@@ -7,5 +7,5 @@ urlpatterns = [
     path('add_post/', create_post, name="add_post"),
     path('post/<int:post_id>', PostView.as_view(), name="post_details"),
     path('add_neighborhood/', create_neighborhood, name='add_neighborhood'),
-    path('<str:hood>/businesses/', BusinessListView, name='business_list')
+    path('businesses/', BusinessListView, name='business_list')
 ]

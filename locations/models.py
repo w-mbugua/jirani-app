@@ -28,8 +28,10 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+CATEGORY_CHOICES = (('Police', 'Police'), ('Health', 'Health'))
+
 class Contact(models.Model):
     name = models.CharField(max_length=50)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='contacts')
+    category = models.CharField(choices=CATEGORY_CHOICES, max_length=6)
     email = models.EmailField()
     phone_number = PhoneNumberField()

@@ -14,12 +14,14 @@
     </div>
     <div class="biz-section">
         <p><strong>
-            <a style="color: black; text-decoration: none;" href="{% url 'home' %}">Businesses</a>
+            <a style="color: black; text-decoration: none;" href="{% url 'business_list' %}">Businesses</a>
         </strong></p>
     </div>
     <div class="contacts">
-        <p><strong>Emergency Contacts</strong></p>
-        
+        <p><strong>
+            <a style="color: black; text-decoration: none;" href="{% url 'contacts_list' %}">Contacts</a>
+        </strong></p>
+
     </div>
 {% endblock %}
 {% block content %}
