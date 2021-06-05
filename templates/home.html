@@ -47,7 +47,7 @@
                             <div class="card-header">
                               {{post.author|title}} &middot;
                               <small>{{ post.created|timesince}} ago</small>
-                              <p>from {{ post.author.neighborhood }}</p>
+                              <p>from {{ post.author.profile.neighborhood }}</p>
                             </div>
                             <div class="card-body">
                               <blockquote class="blockquote mb-0">
