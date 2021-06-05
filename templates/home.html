@@ -1,5 +1,16 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
+
+{% block sidebar %} 
+    <p><strong>Neighborhoods</strong></p>
+    {% for neighborhood in hoods %}
+        <ul>
+            <li>
+                {{neighborhood.name }}
+            </li>
+        </ul>
+    {% endfor %}
+{% endblock %}
 {% block content %}
     <div class="container">
         <div class="row">
