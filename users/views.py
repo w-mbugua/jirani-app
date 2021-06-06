@@ -1,4 +1,3 @@
-from typing import List
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView, View
 from django.urls import reverse_lazy
@@ -8,6 +7,8 @@ from posts.models import Post
 from locations.models import Neighborhood, Business
 from .email import send_welcome_email
 from profiles.models import Profile
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class SignUpView(CreateView):
@@ -21,6 +22,7 @@ class SignUpView(CreateView):
         send_welcome_email(name, email)
         return super().form_valid(form)
 
+@login_required
 def home(request):
     form = PostCreateForm()
     user = request.user
@@ -41,9 +43,7 @@ def home(request):
     else:
         return redirect('create_profile')
     
-   
-
-
+@login_required
 def create_post(request):
     form = PostCreateForm(request.POST, request.FILES)
     if form.is_valid():
@@ -61,7 +61,7 @@ def create_post(request):
     return redirect('home')
 
 
-class PostView(View):
+class PostView(LoginRequiredMixin, View):
     def get(self, request, post_id):
         post = Post.objects.get(id=post_id)
         

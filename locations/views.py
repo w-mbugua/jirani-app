@@ -3,8 +3,9 @@ from .forms import ContactCreateForm, BusinessForm, NewNeighborhoodForm
 from .models import Contact, Business
 from django.urls import reverse
 from django.views.generic import DeleteView
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def create_neighborhood(request):
     form = NewNeighborhoodForm()
     if request.method == 'POST':
@@ -18,6 +19,7 @@ def create_neighborhood(request):
             print("form not valid", form.errors)
     return render(request, 'location/add_hood.html', {"form": form})
 
+@login_required
 def BusinessListView(request):
     # hood = Neighborhood.objects.get(name=hood)
     businesses = Business.objects.all().order_by('-pk')
@@ -40,6 +42,8 @@ def add_contact(request):
             return redirect('contacts_list')
     return render(request, 'location/create_contact.html', {"form": form})
 
+
+@login_required
 def ContactViewList(request):
     contacts = Contact.objects.all().order_by('-pk')
 
@@ -49,6 +53,8 @@ def ContactViewList(request):
             new_contacts.append(contact)
     return render(request, 'location/contactlist.html', {"contacts": new_contacts})
 
+
+@login_required
 def add_business(request):
     form = BusinessForm()
     if request.method == 'POST':
@@ -60,6 +66,8 @@ def add_business(request):
             return redirect('business_list')
     return render(request, 'location/add_business.html', {"form": form})
 
+
+@login_required
 def neighborhood_details(request):
     user = request.user
     area = user.get_location()
@@ -68,6 +76,8 @@ def neighborhood_details(request):
     context = {"occupants": occupants, "area": area, "biz_count": biz_count}
     return render(request, 'location/about.html', context)
 
+
+@login_required
 def search_business(request):
     searched_word = request.GET.get('searchword')
     results = Business.search_business(searched_word)
