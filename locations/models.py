@@ -23,7 +23,11 @@ class Neighborhood(models.Model):
     
     def count_businesses(self):
         businesses_count = self.businesses.all().count()
+        
         return businesses_count
+    
+    def contact_count(self):
+        return self.contacts.all().count()
     
     @classmethod
     def find_business(cls, biz_id):
@@ -70,3 +74,4 @@ class Contact(models.Model):
 
     def get_location(self):
         return self.neighborhood
+    
