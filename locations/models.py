@@ -57,11 +57,6 @@ class Business(models.Model):
         return business
     
 
-class Category(models.Model):
-    name = models.CharField(max_length=10)
-
-    def __str__(self):
-        return self.name
 
 CATEGORY_CHOICES = (('Police', 'Police'), ('Health', 'Health'))
 

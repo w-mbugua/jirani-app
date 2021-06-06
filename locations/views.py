@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import ContactCreateForm, BusinessForm, NewNeighborhoodForm
 from .models import Contact, Business
 from django.urls import reverse
+from django.views.generic import DeleteView
 
 
 def create_neighborhood(request):
