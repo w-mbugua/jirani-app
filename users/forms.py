@@ -23,8 +23,5 @@ class PostCreateForm(forms.ModelForm):
             'body': forms.Textarea(attrs={'rows': '3'})
         }
 
-class NewNeighborhoodForm(forms.ModelForm):
-    class Meta:
-        model = Neighborhood
-        fields = '__all__'
+
 

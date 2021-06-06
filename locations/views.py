@@ -1,7 +1,33 @@
 from django.shortcuts import render, redirect
-from .forms import ContactCreateForm, BusinessForm
+from .forms import ContactCreateForm, BusinessForm, NewNeighborhoodForm
 from .models import Contact, Business
 from django.urls import reverse
+
+
+def create_neighborhood(request):
+    form = NewNeighborhoodForm()
+    if request.method == 'POST':
+        form = NewNeighborhoodForm(request.POST)
+        if form.is_valid():
+            hood = form.save(commit=False)
+            hood.admin = request.user
+            hood.save()
+            return redirect('home')
+        else:
+            print("form not valid", form.errors)
+    return render(request, 'location/add_hood.html', {"form": form})
+
+def BusinessListView(request):
+    # hood = Neighborhood.objects.get(name=hood)
+    businesses = Business.objects.all().order_by('-pk')
+    user_location = request.user.profile.neighborhood
+
+    new_businesses = []
+    for business in businesses:
+        if business.neighborhood == user_location:
+            new_businesses.append(business)
+    
+    return render(request, 'location/biz_list.html', {"businesses": new_businesses})
 
 def add_contact(request):
     form = ContactCreateForm()
