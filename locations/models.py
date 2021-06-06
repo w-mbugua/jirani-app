@@ -3,9 +3,16 @@ from django.contrib.auth import get_user_model
 from phonenumber_field.modelfields import PhoneNumberField
 
 
+class Admin(models.Model):
+    person = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.person.username
+
 class Neighborhood(models.Model):
     name = models.CharField(max_length=50)
     location = models.CharField(max_length=50)
+    admin = models.ForeignKey(Admin, on_delete=models.CASCADE)
  
     def __str__(self):
         return self.name
