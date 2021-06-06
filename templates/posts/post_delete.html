@@ -4,7 +4,7 @@
     <h1>Delete Post</h1>
     <form action="" method="POST">
         {% csrf_token %}
-        <p>Are you sure you want to delete "{{post.title}}"</p>
+        <h3>Are you sure you want to delete "{{post|truncatewords:10}}..." ?</h3>
         <input class="btn btn-danger" type="submit" value="Confirm">
     </form>
 {% endblock %}

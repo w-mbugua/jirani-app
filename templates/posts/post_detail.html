@@ -16,8 +16,7 @@
                         <p>{{ post.body }}</p>
                        <hr>
                             {% if user == post.author %}
-                                <a href="">Edit</a>
-                                <a href="">Delete</a>
+                               {% include 'actions.html' %}
                             {% endif %}
                       </blockquote>
                     </div>
