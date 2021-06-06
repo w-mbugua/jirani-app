@@ -6,11 +6,6 @@ body{
     padding: 0;
     box-sizing: border-box;
 }
-a{
-    color: black;
-    
-}
-
 
 .sidenav {
     height: 100%;
@@ -34,7 +29,6 @@ a{
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 1.5rem;
-    color: white;
     display: block;
   }
   
@@ -54,18 +48,23 @@ a{
   }
 
 nav {
-    background-color: #8B635C;
+    background-color: #DC9E82;
     }
-nav a, footer a{
-        color: white;
-        font-size: 1.5rem;
-    }
+li a{
+  color: #030027;
+}
+
+header a{
+  color: white;
+}
+
 .navbar-brand, .logo{
     font-size: 2.2rem;
     text-transform: uppercase;
     }
 .btn-search {
-    background-color: #F5FF90;
+    background-color: #030027;
+    color: wheat;
     }
 .footer{
         position: absolute;
@@ -88,7 +87,30 @@ nav a, footer a{
 }
 
 li a {
-  color: black;
   text-decoration: none;
+  font-size: 1.2rem;
 }
 
+.action-icons {
+  padding: 10px;
+}
+
+
+.navbar-brand, .logo {
+    font-size: 2.2rem;
+    text-transform: uppercase;
+}
+.navbar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+.navbar-brand{
+  box-shadow: none;
+  background-color: #DC9E82;
+  font-size: 2.2rem;
+}
