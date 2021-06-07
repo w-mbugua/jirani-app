@@ -1,5 +1,5 @@
 from django import forms
-from .models import Contact,Business, Neighborhood
+from .models import Contact, Business, Neighborhood
 
 class ContactCreateForm(forms.ModelForm):
     class Meta:

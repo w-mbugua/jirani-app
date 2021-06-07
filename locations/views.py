@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect
 from .forms import ContactCreateForm, BusinessForm, NewNeighborhoodForm
 from .models import Contact, Business
 from django.urls import reverse
-from django.views.generic import DeleteView
+from django.views.generic import DeleteView, UpdateView
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 @login_required
 def create_neighborhood(request):
@@ -31,6 +32,13 @@ def BusinessListView(request):
             new_businesses.append(business)
     
     return render(request, 'location/biz_list.html', {"businesses": new_businesses})
+
+class BusinessEditView(LoginRequiredMixin, UpdateView):
+    model = Business
+    template_name = 'location/edit_business.html'
+    fields = ('name', 'neighborhood', 'email',)
+    success_url = '/location/businesses/'
+
 
 def add_contact(request):
     form = ContactCreateForm()

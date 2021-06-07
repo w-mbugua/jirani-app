@@ -30,14 +30,15 @@ class Neighborhood(models.Model):
         return self.contacts.all().count()
     
     @classmethod
-    def find_business(cls, biz_id):
-        business = cls.objects.get(id=biz_id)
-        return business
+    def find_neighborhood(cls, neighborhood_id):
+        neighborhood = cls.objects.get(id=neighborhood_id)
+        return neighborhood
+    
+    def update_neighborhood(self, new_name):
+        self.name = new_name
+        self.save()
 
-    @classmethod
-    def search_business(cls, searchterm):
-        business = cls.objects.filter(name__icontains = searchterm)
-        return business
+
     
     # def get_absolute_url(self):
     #     return reverse('neighborhood_details', args=[str(self.pk)])
@@ -50,6 +51,7 @@ class Business(models.Model):
 
     def __str__(self):
         return self.name
+    
     
     @classmethod
     def search_business(cls, searchterm):
