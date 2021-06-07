@@ -1,26 +1,23 @@
-# ![AwardsApp](https://github.com/JoyMbugua/jirani-app/blob/master/staticfiles/img/xxxx)
+# ![JiraniApp](https://github.com/JoyMbugua/jirani-app/blob/master/static/images/jiraniapp.png)
 
 # Jirani App
 
-A web that allows users to upload images and links to their websites and get ratings on:
-  1. Design
-  2. Usability
-  3. Content
+A web app that allows users to stay updated on all that's appeing within their neighborhood.
 
 ## User Stories:
 A user can:
-* Register and Sign in to their neighborhood page 
-* Set up a profile with details like contact info and location
-* Find a list of businesses, helpful contacts for their neighborhood
-* Create posts visible to their community
-* Change neighborhood once they move out
-
+* Register and Sign in with the application and set up a profile 
+* Find a list of different businesses in their neighborhood
+* Find Contact Information for the health department and Police authorities in their neighborhood
+* Create Posts that are visible to everyone in their neighborhood.
+* Change their neighborhood on the app 
+* Can only view details of a single neighborhood.
 
 ### [ERD](https://lucid.app/lucidchart/f3bc30d1-4edd-4da5-8f58-3af1c427f50c/edit?page=0_0&invitationId=inv_63f88b8b-9054-486f-aaf3-6bb246f0e891#)
 
 ## Demo
 
-Here is a working live demo : <https://jm-jirani.herokuapp.com/>
+Here is a working live demo : <https://jirani-app-jm.herokuapp.com/>
 
 ## Mobile support
 
@@ -28,7 +25,7 @@ The WebApp is compatible with devices of all sizes and all OS's, and consistent 
 
 
 
-## [Usage](https://jm-jirani.herokuapp.com/)
+## [Usage](https://jirani-app-jm.herokuapp.com/)
 
 ### Development
 
