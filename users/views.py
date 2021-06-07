@@ -54,6 +54,7 @@ def create_post(request):
 
             data = []
             item = {"id": post.id, "body": post.body, "author": post.author.username, "image": post.image}
+            print(post.image)
             data.append(item)
             return JsonResponse({'data': data}, status=200)
     else:
